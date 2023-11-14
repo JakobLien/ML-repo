@@ -36,13 +36,13 @@ with open('./Testicular Cancer Dataset.csv', 'r') as f:
         # print(line[20])
         if line[20] == '0:DiseaseFree':
             # Skip dem som ikke har fått kreft igjen
-            lines.append(','.join(lineCopy))
+            lines.append(','.join(line))
             continue
 
         # print(line[19].replace('.', ''), line[19].replace('.', '').isnumeric())
 
         if line[19].replace('.', '').isnumeric():
-            for i in [1/3, 2/3, 1, 4/3, 5/3]:
+            for i in [i/10 for i in range(1, 20, 1)]:
                 lineCopy = line.copy()
                 lineCopy[19] = str(round(float(line[19]) * i, 2))
                 if i < 1:
